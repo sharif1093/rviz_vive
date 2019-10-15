@@ -15,7 +15,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #include <OGRE/OgreTexture.h>
 #include <OGRE/RenderSystems/GL/OgreGLTexture.h>
 
-#include <openvr.h>
+#include "openvr/openvr.h"
 
 namespace rviz_vive
 {

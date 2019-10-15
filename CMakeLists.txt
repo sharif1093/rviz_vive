@@ -27,9 +27,7 @@ cmake_minimum_required(VERSION 3.1.0)
 project(rviz_vive)
 
 ##Hardcoded OpenVR Path please change
-set(OPENVR "~/agn/openvr")
-include_directories("${OPENVR}/headers")
-link_directories("${OPENVR}/lib/linux64")
+find_library(OPENVR_LIBRARY openvr_api HINTS /usr/local/lib/)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
 
 find_package(catkin REQUIRED COMPONENTS rviz)
@@ -62,7 +60,7 @@ set(SRC_FILES
 
 add_library(${PROJECT_NAME} ${SRC_FILES})
 
-target_link_libraries(${PROJECT_NAME} ${QT_LIBRARIES} ${catkin_LIBRARIES} openvr_api ${SDL2_LIBRARY} ${GLEW_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${QT_LIBRARIES} ${catkin_LIBRARIES} ${OPENVR_LIBRARY} ${SDL2_LIBRARY} ${GLEW_LIBRARIES})
 
 ## Install rules
 
